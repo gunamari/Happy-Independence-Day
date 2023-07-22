@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown and Independence Day</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <script src="script.js"></script>
+    <div id="countdown"></div>
+</body>
+</html>
+
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: blueviolet;
+    padding: 10px;
+}
+#countdown{
+    font-size: 48px;
+    color: black;
+    margin-bottom: 20px;
+    
+}
+
+
+
+    // Function to display the countdown
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to display the countdown
+        function displayCountdown(count, callback) {
+          document.getElementById("countdown").innerText = count;
+          setTimeout(function() {
+            if (count > 1) {
+              displayCountdown(count - 1, callback);
+            } else {
+              callback();
+            }
+          }, 1000);
+        }
+
+    // Function to display "Happy Independence Day"
+    function displayIndependenceDay() {
+      document.getElementById("countdown").innerText = "Happy Independence Day!";
+    }
+
+    // Start the countdown
+    displayCountdown(10, displayIndependenceDay);
+});
